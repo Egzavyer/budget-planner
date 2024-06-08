@@ -48,7 +48,6 @@ void handleLogin(User& user) {
 }
 
 void handleRegister(User& user) {
-    cout << readConfig("config.txt") << endl;
     string connectionString = readConfig("config.txt");
 
     pqxx::connection c(connectionString);
