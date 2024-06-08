@@ -36,6 +36,10 @@ void showMainMenu() {
 }
 
 void handleLogin(User& user) {
+    string connectionString = readConfig("config.txt");
+
+    pqxx::connection c(connectionString);
+    std::cout << "Connected to " << c.dbname() << '\n';
 
     string inputUsername;
     string inputPassword;
@@ -44,7 +48,7 @@ void handleLogin(User& user) {
     cin >> inputUsername;
     cout << "Password: " << endl;
     cin >> inputPassword;
-    user.loginUser(inputUsername, inputPassword);
+    user.loginUser(inputUsername, inputPassword, c);
 }
 
 void handleRegister(User& user) {

@@ -12,7 +12,7 @@ using std::endl;
 
 class User {
 public:
-    bool loginUser(string inputUsername, string inputPassword);
+    bool loginUser(string inputUsername, string inputPassword, pqxx::connection& activeConnection);
     bool registerUser(string newUsername, string newPassword, pqxx::connection& activeConnection);
 private:
     string username;
