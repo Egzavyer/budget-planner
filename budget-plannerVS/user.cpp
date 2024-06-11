@@ -27,7 +27,7 @@ bool User::loginUser(string inputUsername, string inputPassword, pqxx::connectio
 
     cout << "User: " + inputUsername << endl;
     cout << "Password: " + inputPassword << endl;
-    exit(0);
+    return true;
 }
 
 bool User::registerUser(string newUsername, string newPassword,pqxx::connection& activeConnection) {
@@ -41,5 +41,5 @@ bool User::registerUser(string newUsername, string newPassword,pqxx::connection&
     cout << "User registered!" << endl;
     cout << "User: " + newUsername << endl;
     cout << "Password: " + newPassword << endl;
-    exit(0);
+    return true;
 }
