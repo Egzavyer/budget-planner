@@ -35,7 +35,7 @@ void showMainMenu() {
     cout << "Choose: " << endl;
 }
 
-void handleLogin(User& user) {
+bool handleLogin(User& user) {
     string connectionString = readConfig("config.txt");
 
     pqxx::connection c(connectionString);
@@ -48,10 +48,17 @@ void handleLogin(User& user) {
     cin >> inputUsername;
     cout << "Password: " << endl;
     cin >> inputPassword;
-    user.loginUser(inputUsername, inputPassword, c);
+
+    if (user.loginUser(inputUsername, inputPassword, c) == true) {
+		cout << "User: " + user.getUsername() << endl;
+        return true;
+	}
+	else {
+		return false;
+	}
 }
 
-void handleRegister(User& user) {
+bool handleRegister(User& user) {
     string connectionString = readConfig("config.txt");
 
     pqxx::connection c(connectionString);
@@ -64,20 +71,31 @@ void handleRegister(User& user) {
     cin >> inputUsername;
     cout << "Password: " << endl;
     cin >> inputPassword;
-    user.registerUser(inputUsername, inputPassword, c);
+
+    if (user.registerUser(inputUsername, inputPassword, c) == true) {
+        cout << "User: " + user.getUsername() << endl;
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
-void handleMenuChoice(string& choice) {
+bool handleMenuChoice(string& choice) {
     User user;
     try {
         if (choice == "1") {
             cout << "Login..." << endl;
-            handleLogin(user);
+            if (handleLogin(user)) {
+                return true;
+            }
             //Login
         }
         else if (choice == "2") {
             cout << "Register..." << endl;
-            handleRegister(user);
+            if (handleRegister(user)) {
+				return true;
+			}
             //Register
         }
         else if (choice == "3") {
@@ -95,9 +113,12 @@ void handleMenuChoice(string& choice) {
 
 int main() {
     cout << "Welcome to the CLI Budget Planner!" << endl;
-
-    string choice; 
-    showMainMenu();
-    cin >> choice;
-    handleMenuChoice(choice);
+    while (true) {
+        string choice;
+        showMainMenu();
+        cin >> choice;
+        if (handleMenuChoice(choice)) {
+			break;
+		}
+    }
 }

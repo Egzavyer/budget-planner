@@ -5,8 +5,6 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "budget-plannerVS", "budget-plannerVS\budget-plannerVS.vcxproj", "{B891168D-E5ED-4FE6-8878-76A28D4CED1D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "budget-planner-test", "budget-planner-test\budget-planner-test.vcxproj", "{0640602A-D8A0-4DA0-98F5-EE76C47D2124}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +21,6 @@ Global
 		{B891168D-E5ED-4FE6-8878-76A28D4CED1D}.Release|x64.Build.0 = Release|x64
 		{B891168D-E5ED-4FE6-8878-76A28D4CED1D}.Release|x86.ActiveCfg = Release|Win32
 		{B891168D-E5ED-4FE6-8878-76A28D4CED1D}.Release|x86.Build.0 = Release|Win32
-		{0640602A-D8A0-4DA0-98F5-EE76C47D2124}.Debug|x64.ActiveCfg = Debug|x64
-		{0640602A-D8A0-4DA0-98F5-EE76C47D2124}.Debug|x64.Build.0 = Debug|x64
-		{0640602A-D8A0-4DA0-98F5-EE76C47D2124}.Debug|x86.ActiveCfg = Debug|Win32
-		{0640602A-D8A0-4DA0-98F5-EE76C47D2124}.Debug|x86.Build.0 = Debug|Win32
-		{0640602A-D8A0-4DA0-98F5-EE76C47D2124}.Release|x64.ActiveCfg = Release|x64
-		{0640602A-D8A0-4DA0-98F5-EE76C47D2124}.Release|x64.Build.0 = Release|x64
-		{0640602A-D8A0-4DA0-98F5-EE76C47D2124}.Release|x86.ActiveCfg = Release|Win32
-		{0640602A-D8A0-4DA0-98F5-EE76C47D2124}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
