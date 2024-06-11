@@ -13,7 +13,7 @@ using std::exception;
 string readConfig(const string& filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {
-        throw std::runtime_error("ERROR: Unable to open configuration file.");
+        throw std::runtime_error("ERROR: Unable to open configuration file. \n");
     }
 
     string line;
@@ -23,7 +23,7 @@ string readConfig(const string& filename) {
         }
     }
 
-    throw std::runtime_error("ERROR: DB_CONNECTION_STRING not found in configuration file.");
+    throw std::runtime_error("ERROR: DB_CONNECTION_STRING not found in configuration file. \n");
 }
 
 
@@ -103,7 +103,7 @@ bool handleMenuChoice(string& choice) {
             exit(0);
         }
         else {
-            throw std::invalid_argument("ERROR: Invalid Input");
+            throw std::invalid_argument("ERROR: Invalid Input \n");
         }
     }
     catch (exception& e) {

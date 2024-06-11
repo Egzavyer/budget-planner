@@ -15,18 +15,16 @@ bool User::loginUser(string inputUsername, string inputPassword, pqxx::connectio
     tx.commit();
 
     if (r.empty()) {
-		cout << "ERROR: Invalid username or password." << endl;
+		cout << "ERROR: Invalid username or password. \n" << endl;
 		return false;
 	} else if (r.size() > 1) {
-        cout << "ERROR: Multiple users with the same username and password." << endl;
+        cout << "ERROR: Multiple users with the same username and password. \n" << endl;
         return false;
     }
 
     cout << "User " << inputUsername << " logged in!" << endl;
     User::username = inputUsername;
 
-    cout << "User: " + inputUsername << endl;
-    cout << "Password: " + inputPassword << endl;
     this->username = inputUsername;
     return true;
 }
@@ -42,17 +40,11 @@ bool User::registerUser(string newUsername, string newPassword,pqxx::connection&
 
     }
     catch (const std::exception& e) {
-        if (e.what() == "ERROR: duplicate key value violates unique constraint \"users_pkey\"") {
-            cout << "ERROR: Username already exists." << endl;
-        } else {
-			cout << "ERROR: " << e.what() << endl;
-		}
+		cout << "ERROR: " << e.what() << " \n" << endl;
         return false;
     }
 
     cout << "User registered!" << endl;
-    cout << "User: " + newUsername << endl;
-    cout << "Password: " + newPassword << endl;
     this->username = newUsername;
     return true;
 }
