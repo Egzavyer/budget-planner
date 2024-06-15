@@ -131,14 +131,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="budget.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="postgresExample.cpp" />
-    <ClCompile Include="user.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="budget.h" />
-    <ClInclude Include="user.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="config.txt" />
