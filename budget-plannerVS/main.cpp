@@ -35,6 +35,16 @@ void showMainMenu() {
     cout << "Choose: " << endl;
 }
 
+void showBudgetMenu() {
+    cout << "Budget Menu: " << endl;
+	cout << "1: Add Expense" << endl;
+	cout << "2: Add Income" << endl;
+	cout << "3: View Budget" << endl;
+	cout << "4: Exit" << endl;
+	cout << "Choose: " << endl;
+
+}
+
 bool handleLogin(User& user) {
     string connectionString = readConfig("config.txt");
 
@@ -111,6 +121,29 @@ bool handleMenuChoice(string& choice) {
     }
 }
 
+bool handleBudgetChoice(string& choice) {
+    if (choice == "1") {
+        cout << "Add Expense..." << endl;
+        //Add Expense
+    }
+    else if (choice == "2") {
+        cout << "Add Income..." << endl;
+        //Add Income
+    }
+    else if (choice == "3") {
+        cout << "View Budget..." << endl;
+        //View Budget
+    }
+    else if (choice == "4") {
+        cout << "Exiting..." << endl;
+        return true;
+    }
+    else {
+        cout << "ERROR: Invalid Input \n";
+    }
+    return false;
+}
+
 int main() {
     cout << "Welcome to the CLI Budget Planner!" << endl;
     while (true) {
@@ -118,7 +151,11 @@ int main() {
         showMainMenu();
         cin >> choice;
         if (handleMenuChoice(choice)) {
-			break;
+            showBudgetMenu();
+            cin >> choice;
+            if (handleBudgetChoice(choice)) {
+                break;
+            }
 		}
     }
 }
