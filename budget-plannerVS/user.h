@@ -9,7 +9,10 @@ class User
 public:
 	bool loginUser(std::string& inputUsername, std::string& inputPassword, pqxx::connection& activeConnection);
 	bool registerUser(std::string& newUsername, std::string& newPassword, pqxx::connection& activeConnection);
+	void logoutUser();
 	std::string getUsername();
+
+
 private:
 	std::string username;
 };
