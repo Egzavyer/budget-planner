@@ -12,7 +12,7 @@ bool User::loginUser(std::string& inputUsername, std::string& inputPassword, pqx
 
 	try {
 		pqxx::work txn(activeConnection);
-		pqxx::result result = txn.exec("SELECT * FROM users WHERE username = '" + inputUsername + "' AND password = '" + hashedPassword + "'");
+		txn.exec_prepared("get_user", inputUsername, hashedPassword);
 		txn.commit();
 	}
 	catch (const std::exception& e) {
@@ -30,7 +30,6 @@ bool User::registerUser(std::string& newUsername, std::string& newPassword, pqxx
 
 	try {
 		pqxx::work txn(activeConnection);
-		//txn.exec("INSERT INTO users (username, password) VALUES ('" + newUsername + "', '" + hashedPassword + "')");
 		txn.exec_prepared("insert_user",newUsername,hashedPassword);
 		txn.commit();
 	}

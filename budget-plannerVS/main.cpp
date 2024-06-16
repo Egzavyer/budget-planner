@@ -35,6 +35,7 @@ static pqxx::connection connectToDB() {
 static void definePreparedStatements(pqxx::connection& activeConnection)
 {
 	activeConnection.prepare("insert_user", "INSERT INTO users (username, password) VALUES ($1, $2)");
+	activeConnection.prepare("get_user", "SELECT * FROM users WHERE username = $1 AND password = $2");
 }
 
 static void showMainMenu() {
