@@ -1,2 +1,2 @@
 # budget-planner
- C++ CLI Budget Planner
+CLI Budget Planner application coded in C++ with PostgreSQL as the database.
